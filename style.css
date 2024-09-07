@@ -46,12 +46,21 @@ body::before {
 h1 {
     font-family: "Cinzel Decorative", serif;
     font-style: bold;
-    font-size: 2.5rem; /* Tamanho da fonte */
+    font-size: 3rem; /* Tamanho da fonte */
     color: #D4AF37; /* Cor do texto */
+    text-shadow: 2px 2px 5px #000000, /* Sombra escura para dar profundidade */
+                 0 0 20px #C9A66B, /* Sombra de brilho dourado */
+                 0 0 30px #C9A66B, 
+                 0 0 40px #C9A66B; /* Intensidade do brilho */
     text-align: center; /* Alinha o texto ao centro */
     letter-spacing: 0.4rem; /* Espaçamento entre letras */
-    text-shadow: 2px 2px 4px #131d3b; /* Sombreamento */
-    
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave */
+}
+
+/* Efeito de hover */
+#titulo-livro:hover {
+    color: #FFD700; /* Cor de destaque no hover */
+    text-shadow: 4px 4px 8px #000; /* Aumenta a sombra no hover */
 }
 
 /* Estiliza as seções da página */
@@ -74,21 +83,46 @@ section input {
     box-sizing: border-box; /* Inclui padding e border na largura total */
 }
 
+/* Estilo do campo de pesquisa */
+#campo-pesquisa {
+    width: 30rem; /* Largura do campo de pesquisa */
+    padding: 12px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    border: 2px solid #946b2d; /* Borda com cor inspirada em pergaminhos */
+    border-radius: 25px; /* Borda arredondada para um visual suave */
+    background-color: #fffdf0; /* Fundo levemente amarelado para parecer um pergaminho */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
+    transition: all 0.3s ease; /* Transição suave ao interagir */
+}
+
+#campo-pesquisa:focus {
+    outline: none; /* Remove a linha de foco padrão */
+    border-color: #70421e; /* Cor da borda ao focar */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao focar */
+}
+
 /* Estiliza os botões dentro das seções */
 section button {
-    padding: 0.8rem 1.2rem; /* Espaçamento interno do botão */
-    border: none; /* Remove a borda padrão */
-    border-radius: 1.5rem; /* Borda arredondada */
-    background-color: #800020; /* Cor de fundo do botão */
-    color: #F5F7F8; /* Cor do texto do botão */
-    font-size: 1rem; /* Tamanho da fonte */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    padding: 10px 20px; /* Espaçamento interno */
+    margin-left: 10px; /* Espaçamento à esquerda */
+    font-size: 16px; /* Tamanho da fonte */
+    color: #fffdf0; /* Cor do texto */
+    background-color: #7d1d1d; /* Cor de fundo inspirada na capa de um livro antigo */
+    border: 2px solid #70421e; /* Borda com cor mais escura */
+    border-radius: 20px; /* Borda arredondada */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    transition: all 0.3s ease; /* Transição suave ao interagir */
 }
 
 /* Adiciona efeito hover ao botão de pesquisa */
 section button:hover {
-    background-color: #2E8B57; /* Muda a cor de fundo ao passar o mouse */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais intensa */
+    background-color: #ad2424; /* Muda a cor de fundo ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ao passar o mouse */
+}
+
+section button:active {
+    background-color: #70421e; /* Muda a cor de fundo ao clicar */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra interna ao clicar */
 }
 
 /* Estiliza a caixa de resultados da pesquisa */
@@ -99,36 +133,77 @@ section button:hover {
     margin-top: 1rem; /* Espaçamento acima da caixa de resultados */
     padding: 1rem; /* Espaçamento interno */
     border-radius: 0.6rem; /* Borda arredondada */
+    display: flex;
+    flex-direction: column;
+    
 }
 
 /* Estiliza cada item de resultado */
 .item-resultado {
-    background: #E6E2D3; /* Cor de fundo dos itens */
-    border: 2px solid #C9A66B; /* Borda fina sólida e colorida */
-    border-radius: 0.6rem; /* Borda arredondada */
     padding: 1rem; /* Espaçamento interno */
-    margin-bottom: 1rem; /* Espaçamento abaixo dos itens */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    opacity: 0.7; /* Transparência da caixa (20% de transparência) */
-    
+    background-color: rgba(255, 253, 240, 0.9); /* Fundo semi-transparente inspirado em pergaminho */
+    border: 2px solid #946b2d; /* Borda de pergaminho */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-bottom: 1rem; /* Espaçamento inferior */
+    font-family: 'Merriweather', serif; /* Fonte clássica e legível */
+    color: #333; /* Cor de texto escuro para boa legibilidade */
 }
 
 /* Estiliza os títulos dentro dos itens de resultado */
 .item-resultado h2 {
-    font-size: 1.5rem; /* Tamanho da fonte */
-    color: #222831; /* Cor do texto */
+    font-size: 1.5rem; /* Tamanho maior para títulos */
+    color: #7d1d1d; /* Cor do título combinando com o tema */
+    margin-bottom: 1rem; /* Espaçamento abaixo do título */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra para destacar o texto */
 }
 
 /* Estiliza os links dentro dos itens de resultado */
 .item-resultado a {
-    text-decoration: none; /* Remove o sublinhado padrão dos links */
-    color: #30475E; /* Cor do texto dos links */
+    font-family: "Baskerville", serif;
+    color: #70421e; /* Cor de link que combina com o tema */
+    text-decoration: none; /* Remove sublinhado padrão */
+    font-weight: bold; /* Negrito para destacar links */
+}
+
+.item-resultado p {
+    font-family: 'Merriweather', serif; /* Fonte clássica e legível */
+    font-size: 1rem; /* Tamanho padrão para o texto */
+    line-height: 1.6; /* Espaçamento entre linhas para melhorar a leitura */
+    margin-bottom: 1rem; /* Espaçamento entre parágrafos */
 }
 
 /* Estiliza os links quando são passados o mouse sobre */
 .item-resultado a:hover {
     text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
 }
+
+/* Estilo para a barra de rolagem */
+::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+  }
+  
+::-webkit-scrollbar-track {
+    background: #2b2b2b; /* Cor de fundo da trilha da barra */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra interna */
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(145deg, #946b2d, #56371b); /* Gradiente para o "polegar" da barra de rolagem */
+    border-radius: 10px; /* Borda arredondada */
+    border: 2px solid #2b2b2b; /* Borda para um efeito de profundidade */
+  }
+  
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(145deg, #ad7b3a, #70421e); /* Efeito de hover no "polegar" */
+  }
+  
+  /* Estilo para Firefox */
+* {
+    scrollbar-width: thin; /* Largura fina da barra */
+    scrollbar-color: #946b2d #2b2b2b; /* Cor do "polegar" e da trilha */
+  }
 
 /* Estiliza o texto não encontrado */
 .nao-encontrado {
@@ -160,6 +235,7 @@ section button:hover {
 .descricao-meta {
     color: #222831; /* Cor do texto */
     margin: 0.5rem 0; /* Margem acima e abaixo */
+    font-family: "Merriweather", serif; /* Altere para a fonte que desejar */
 }
 
 /* Estiliza o rodapé da página */
